@@ -13,6 +13,7 @@ export interface ProjectData {
   category: string;
   img: string;
   link: string;
+  role?: string;
   details: {
     pitch: string;
     sections: ProjectDetailSection[];
@@ -20,7 +21,6 @@ export interface ProjectData {
 }
 
 // ─── FEATURED / PINNED PROJECTS ─────────────────────────────────────────
-// The absolute best — showcased at the top of the page in large bento cards.
 
 export const FEATURED_PROJECTS: ProjectData[] = [
   {
@@ -33,25 +33,34 @@ export const FEATURED_PROJECTS: ProjectData[] = [
     category: "Android Application",
     img: "https://images.unsplash.com/photo-1596522521199-ab48b8863aa9?q=80&w=800&auto=format&fit=crop",
     link: "https://github.com/vrn7712/Zon",
+    role: "Creator / Lead Developer",
     details: {
       pitch: "A digital sanctuary that helps users access their flow state. Zero ads. Zero tracking. Zero subscriptions. Just pure, beautiful productivity.",
       sections: [
         {
           title: "Defiance by Design",
-          content: "The mobile market is flooded with focus apps that contradict their own purpose—cluttered with ads, mandatory sign-ups, and paywalled essentials. Zon was built as the antidote: a completely free, 100% offline-first application that respects the user's intelligence, time, and data privacy."
+          content: "The mobile market is overwhelmingly saturated with productivity tools that fundamentally contradict their purpose—cluttered with intrusive banner ads, mandatory sign-ups, and paywalled essentials. Zon was architected from the ground up as the definitive antidote: a completely free, 100% open-source, and strictly offline-first application that respects the user's intelligence, time, and data privacy."
         },
         {
-          title: "Feature Density",
+          title: "Deep Work, Tailored To You",
           content: [
-            "Fully customizable Pomodoro sprints overriding the standard 25-minute dogma, with automated work-break transitions and saveable presets.",
-            "A rich analytics dashboard featuring GitHub-style yearly heatmaps, daily/weekly/monthly charts, and time-of-day breakdowns revealing peak productivity windows.",
-            "Unified contextual task management with categorized subjects and priority tiers, eliminating the need to switch between apps.",
-            "Curated offline ambient soundscapes integrated directly into the notification panel for an insulated acoustic environment."
+            "Fully customizable Pomodoro sprints overriding the standard 25-minute dogma, with automated work-break transitions and saveable presets for different workflows.",
+            "Curated offline ambient soundscapes—Cozy Lofi, Study Music—integrated directly into the notification panel, creating an insulated acoustic environment without needing a third app.",
+            "Smart alerts customizable with specific sounds or vibration-only feedback for quiet environments. Automatic Do Not Disturb integration ensures calls don't break the zone.",
+            "Home screen widgets for timer control and daily stats, letting users glance at progress without opening the app."
           ]
         },
         {
+          title: "Meaningful Analytics",
+          content: "A rich, visually dense analytics dashboard transforms raw data into actionable insights. GitHub-style yearly heatmaps display consistency over time, daily/weekly/monthly charts track progress, and a unique time-of-day breakdown reveals when the user is most naturally productive—allowing optimization of challenging tasks for peak hours."
+        },
+        {
+          title: "Unified Task Management",
+          content: "Instead of context-switching between apps, users organize their entire day directly within Zon. The built-in manager supports categorized subjects, tiered priority levels, and intuitive swipe-to-delete gestures—ensuring users always know what to tackle the moment they hit Start."
+        },
+        {
           title: "Design Philosophy",
-          content: "Built on Google's Material 3 Expressive design language with dynamic color theming. Full Light, Dark, and deep AMOLED theme support ensures it feels like a native, premium extension of the operating system."
+          content: "Built utilizing Google's latest Material 3 Expressive design language with dynamic color theming that adapts to the user's wallpaper. Full Light, Dark, and deep AMOLED theme support ensures it feels like a premium, native extension of the operating system. Fluid animations and intuitive swipe gestures make navigation a tactile, satisfying experience."
         }
       ]
     }
@@ -59,31 +68,45 @@ export const FEATURED_PROJECTS: ProjectData[] = [
   {
     id: "02",
     status: "FEATURED",
-    year: "2026",
+    year: "2025",
     title: "AlertDrive",
     desc: "Award-winning IoT smart helmet ecosystem monitoring drowsiness, distraction, and impairment in real-time.",
     tags: ["ESP32", "IOT", "SENSORS", "MOBILE APP"],
     category: "Hardware & IoT",
     img: "https://images.unsplash.com/photo-1582215707736-235e236599cc?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Co-Creator, Research & Data Analysis",
     details: {
-      pitch: "A proactive, three-tiered IoT safety net intercepting the three fatal vectors of road accidents before they become fatal.",
+      pitch: "A proactive, three-tiered IoT safety net intercepting the three fatal vectors of road accidents before they become fatal. National Finalist at RBVP 2025, Bhopal.",
       sections: [
         {
-          title: "The Crisis",
-          content: "India faces over 415 traffic-related deaths daily. The core issue isn't mechanical—it's human. AlertDrive targets the three primary vectors: microsleep at highway speeds, mobile distraction causing 25% of urban crashes, and pre-ignition alcohol impairment involved in 30% of all fatalities."
+          title: "The Crisis: A Silent Epidemic",
+          content: "India faces over 415 traffic-related deaths daily. The core issue isn't mechanical—it's human. Our team isolated three primary vectors: Drowsiness (~5% of highway fatalities—a microsleep at 80km/h is lethal), Distraction (the #1 cause of urban collisions at 25%, with mobile use increasing crash risk by 400%), and Impairment (involved in 30% of all fatalities, where prevention must happen before ignition)."
         },
         {
-          title: "Hardware Integration",
+          title: "The Guardian — Hardware v1.0",
           content: [
-            "The Guardian: An MPU6050 6-Axis Sensor coupled with an ESP32 Dual Core calculates head pitch/roll using a complementary filter with sub-50ms latency.",
-            "The Dashboard: An MQ-3 interlocking alcohol sensor prevents ignition upon detecting impairment. DHT11 monitors cabin conditions to forecast fatigue.",
-            "Command Center: Companion mobile application deploying real-time telemetry graphs, GPS geo-logging of alert events, and hands-free voice prompts."
+            "MPU6050 6-Axis Sensor constantly calculates the user's head pitch and roll using a complementary filter algorithm.",
+            "ESP32 Dual Core processor provides sub-50ms latency for real-time kinematic monitoring.",
+            "Custom C++ algorithm utilizing advanced mathematics to correct accelerometer drift and calculate precise angles.",
+            "If a critical head tilt exceeding a strict 35-degree threshold indicating microsleep is detected, local buzzers activate instantly and a distress payload is dispatched."
+          ]
+        },
+        {
+          title: "The Dashboard Unit",
+          content: "An onboard dashboard suite interfaces directly with the driver's environment. An MQ-3 interlocking alcohol sensor physically prevents engine ignition upon detecting impairment. A DHT11 sensor tracks temperature and humidity to preemptively warn of fatigue-inducing cabin conditions. A 16x4 LCD provides constant health checks and visual warnings."
+        },
+        {
+          title: "Mobile Command Center",
+          content: [
+            "Real-time visual graphing of pitch and roll angles via live telemetry.",
+            "GPS geo-logging captures exact latitude and longitude of every alert event for post-drive analysis.",
+            "Hands-free audible warnings ensure the driver's eyes never leave the road."
           ]
         },
         {
           title: "Recognition",
-          content: "National Finalist at the Rashtriya Bal Vaigyanik Pradarshani (RBVP) 2026 in Bhopal, validating extreme sensor-fusion reliability under rigorous institutional testing across District and State levels."
+          content: "National Finalist at the Rashtriya Bal Vaigyanik Pradarshani (RBVP) 2025 in Bhopal, validating extreme sensor-fusion reliability under rigorous institutional testing. Advanced aggressively through District and State level qualifiers."
         }
       ]
     }
@@ -91,32 +114,51 @@ export const FEATURED_PROJECTS: ProjectData[] = [
   {
     id: "03",
     status: "FEATURED",
-    year: "2026",
+    year: "2025",
     title: "Non-Newtonian Speedbump",
     desc: "Adaptive traffic calming device using shear-thickening fluids — soft for lawful drivers, rigid against speeders.",
     tags: ["MATERIALS SCIENCE", "FLUID DYNAMICS", "ENGINEERING"],
     category: "Applied Physics",
     img: "https://images.unsplash.com/photo-1541888079-22a0a256aee0?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Lead Researcher",
     details: {
-      pitch: "Ending static infrastructural hazards. An adaptive kinetic barrier that transitions from liquid to solid exclusively upon violent impact — punishing speeders, yielding to ambulances.",
+      pitch: "Ending static infrastructural hazards. An adaptive kinetic barrier that transitions from liquid to solid exclusively upon violent impact — punishing speeders, yielding to ambulances. District Winner at INSPIRE Awards - MANAK.",
       sections: [
         {
-          title: "The Failure of Concrete",
-          content: "Traditional humps delay ambulances by critical seconds, damage vehicle suspension, waste fuel through forced stop-and-go cycles, and generate intense acoustic pollution indiscriminately across residential zones, hospitals, and school campuses."
-        },
-        {
-          title: "Fluid Dynamics Engineering",
-          content: "Harnesses shear-thickening non-Newtonian fluids (amylopectin colloid suspended in a PEG 400 matrix). At low shear (lawful speeds), particles slide freely — the bump stays liquid, compressing gently. At high shear (speeding impact), rapid hydroclustering triggers particle jamming, instantly solidifying the mass into a punishing rigid barrier."
-        },
-        {
-          title: "Viability & Data",
+          title: "The Failure of Static Infrastructure",
           content: [
-            "Achieved a mathematically proven 65.15% reduction in speeding vs. concrete's 52.6%.",
-            "Vertical G-force jolt reduced from 1.2g (concrete) to 0.3–0.5g for lawful drivers.",
-            "40–50% drop in perceived noise pollution in acoustic comparisons.",
-            "Contained within extreme-pressure Kevlar hosing coated in industrial PVC. Awarded District Winner by INSPIRE Awards - MANAK, advanced to State Qualification."
+            "Emergency vehicles lose critical seconds decelerating over concrete humps, with patients subjected to dangerous jolts.",
+            "Repeated jarring heavily wears down suspension systems, damages shocks, and causes severe undercarriage scraping.",
+            "Traditional humps achieve only 52.6% speed reduction and fail to differentiate between a speeder and an ambulance.",
+            "Forced stop-and-go cycles increase localized air pollution, fuel waste, and generate intense acoustic pollution in residential zones."
           ]
+        },
+        {
+          title: "The Rheological Foundation",
+          content: "Harnesses shear-thickening non-Newtonian fluids (amylopectin colloid suspended in a PEG 400 matrix). At low shear (lawful speeds), particles slide freely — the bump stays liquid, compressing gently. At high shear (speeding impact), rapid hydroclustering triggers aggressive particle jamming, instantly solidifying the mass into a punishing rigid barrier."
+        },
+        {
+          title: "Industrial Engineering",
+          content: [
+            "PEG 400 integration provides suspension stabilization, thermal anti-freeze for sub-zero winters, and a 5-year inert shelf life.",
+            "Kevlar-coated high-pressure industrial hosing manages thousands of violent pressure spikes without structural fatigue.",
+            "PVC-coated exterior armor identical to industrial river raft material provides waterproofing and extreme abrasion resistance.",
+            "Modular bolt-down rubber chassis allows rapid installation without ground excavation or concrete curing."
+          ]
+        },
+        {
+          title: "Proven Efficacy",
+          content: [
+            "65.15% reduction in speeding traffic vs. concrete's 52.6% — mathematically proven superior governance.",
+            "Vertical G-force jolt reduced from 1.2g (concrete) to 0.3–0.5g for lawful drivers — eliminating suspension damage.",
+            "40–50% drop in perceived noise pollution in direct head-to-head acoustic comparisons.",
+            "Manufacturing costs estimated at merely 60–70% of traditional concrete bump installation."
+          ]
+        },
+        {
+          title: "Future Vision",
+          content: "Phase 2 targets critical Quiet Zones — hospitals, schools, luxury estates. Phase 3 envisions embedding acoustic sensors tuned to emergency siren frequencies, automatically ensuring fluid state regardless of ambulance speed."
         }
       ]
     }
@@ -124,7 +166,6 @@ export const FEATURED_PROJECTS: ProjectData[] = [
 ];
 
 // ─── CURRENTLY WORKING ON ───────────────────────────────────────────────
-// Projects actively in development.
 
 export const CURRENT_PROJECTS: ProjectData[] = [
   {
@@ -137,6 +178,7 @@ export const CURRENT_PROJECTS: ProjectData[] = [
     category: "Operating System",
     img: "https://images.unsplash.com/photo-1629654291663-b91ad427698f?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Solo Developer",
     details: {
       pitch: "Understanding the machine at its most fundamental layer. VoidOS is a pedagogical kernel built from absolute zero — no frameworks, no abstractions, just raw silicon.",
       sections: [
@@ -170,6 +212,7 @@ export const CURRENT_PROJECTS: ProjectData[] = [
     category: "Search Infrastructure",
     img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Architect",
     details: {
       pitch: "Search should serve the user, not profile them. Meridian is an independent search engine built on semantic understanding rather than ad-auction ranking.",
       sections: [
@@ -203,6 +246,7 @@ export const CURRENT_PROJECTS: ProjectData[] = [
     category: "Web Browser",
     img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Architect",
     details: {
       pitch: "The browser is the most used application on the planet, yet every major one is built by an advertising company. Nebula is a browser built by a user, for users.",
       sections: [
@@ -258,7 +302,6 @@ export const CURRENT_PROJECTS: ProjectData[] = [
 ];
 
 // ─── PAST PROJECTS ──────────────────────────────────────────────────────
-// All completed works — the full archive.
 
 export const PAST_PROJECTS: ProjectData[] = [
   {
@@ -271,25 +314,29 @@ export const PAST_PROJECTS: ProjectData[] = [
     category: "Android Application",
     img: "https://images.unsplash.com/photo-1596522521199-ab48b8863aa9?q=80&w=800&auto=format&fit=crop",
     link: "https://github.com/vrn7712/Zon",
+    role: "Creator / Lead Developer",
     details: {
       pitch: "A digital sanctuary that helps users access their flow state. Zero ads. Zero tracking. Zero subscriptions. Just pure, beautiful productivity.",
       sections: [
         {
           title: "Defiance by Design",
-          content: "The mobile market is flooded with focus apps that contradict their own purpose—cluttered with ads, mandatory sign-ups, and paywalled essentials. Zon was built as the antidote: a completely free, 100% offline-first application that respects the user's intelligence, time, and data privacy."
+          content: "The mobile market is overwhelmingly saturated with productivity tools that fundamentally contradict their purpose—cluttered with intrusive banner ads, mandatory sign-ups, and paywalled essentials. Zon was architected from the ground up as the definitive antidote: a completely free, 100% open-source, and strictly offline-first application that respects the user's intelligence, time, and data privacy."
         },
         {
-          title: "Feature Density",
+          title: "Deep Work, Tailored To You",
           content: [
-            "Fully customizable Pomodoro sprints overriding the standard 25-minute dogma, with automated work-break transitions and saveable presets.",
-            "A rich analytics dashboard featuring GitHub-style yearly heatmaps, daily/weekly/monthly charts, and time-of-day breakdowns revealing peak productivity windows.",
-            "Unified contextual task management with categorized subjects and priority tiers, eliminating the need to switch between apps.",
-            "Curated offline ambient soundscapes integrated directly into the notification panel for an insulated acoustic environment."
+            "Fully customizable Pomodoro sprints with automated work-break transitions and saveable presets.",
+            "Curated offline ambient soundscapes integrated directly into the notification panel.",
+            "Smart alerts with Do Not Disturb integration. Home screen widgets for at-a-glance progress."
           ]
         },
         {
+          title: "Meaningful Analytics",
+          content: "GitHub-style yearly heatmaps, daily/weekly/monthly charts, and a unique time-of-day breakdown revealing peak productivity windows."
+        },
+        {
           title: "Design Philosophy",
-          content: "Built on Google's Material 3 Expressive design language with dynamic color theming. Full Light, Dark, and deep AMOLED theme support ensures it feels like a native, premium extension of the operating system."
+          content: "Built on Google's Material 3 Expressive with dynamic color theming. Full Light, Dark, and deep AMOLED theme support."
         }
       ]
     }
@@ -297,31 +344,32 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "02",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "AlertDrive",
     desc: "Award-winning IoT smart helmet ecosystem monitoring drowsiness, distraction, and impairment in real-time.",
     tags: ["ESP32", "IOT", "SENSORS", "MOBILE APP"],
     category: "Hardware & IoT",
     img: "https://images.unsplash.com/photo-1582215707736-235e236599cc?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Co-Creator, Research & Data Analysis",
     details: {
       pitch: "A proactive, three-tiered IoT safety net intercepting the three fatal vectors of road accidents before they become fatal.",
       sections: [
         {
           title: "The Crisis",
-          content: "India faces over 415 traffic-related deaths daily. The core issue isn't mechanical—it's human. AlertDrive targets the three primary vectors: microsleep at highway speeds, mobile distraction causing 25% of urban crashes, and pre-ignition alcohol impairment involved in 30% of all fatalities."
+          content: "India faces over 415 traffic-related deaths daily. AlertDrive targets: microsleep at highway speeds, mobile distraction causing 25% of urban crashes, and pre-ignition alcohol impairment."
         },
         {
-          title: "Hardware Integration",
+          title: "The Ecosystem",
           content: [
-            "The Guardian: An MPU6050 6-Axis Sensor coupled with an ESP32 Dual Core calculates head pitch/roll using a complementary filter with sub-50ms latency.",
-            "The Dashboard: An MQ-3 interlocking alcohol sensor prevents ignition upon detecting impairment. DHT11 monitors cabin conditions to forecast fatigue.",
-            "Command Center: Companion mobile application deploying real-time telemetry graphs, GPS geo-logging of alert events, and hands-free voice prompts."
+            "MPU6050 + ESP32 Dual Core: Sub-50ms head tilt detection via complementary filter.",
+            "MQ-3 interlocking alcohol sensor prevents ignition. DHT11 monitors cabin fatigue conditions.",
+            "Companion app with live telemetry, GPS geo-logging, and hands-free voice prompts."
           ]
         },
         {
           title: "Recognition",
-          content: "National Finalist at the Rashtriya Bal Vaigyanik Pradarshani (RBVP) 2026 in Bhopal, validating extreme sensor-fusion reliability under rigorous institutional testing across District and State levels."
+          content: "National Finalist at RBVP 2025 in Bhopal, advancing through District and State levels."
         }
       ]
     }
@@ -329,31 +377,27 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "03",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "Non-Newtonian Speedbump",
     desc: "Adaptive traffic calming device using shear-thickening fluids — soft for lawful drivers, rigid against speeders.",
     tags: ["MATERIALS SCIENCE", "FLUID DYNAMICS", "ENGINEERING"],
     category: "Applied Physics",
     img: "https://images.unsplash.com/photo-1541888079-22a0a256aee0?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Lead Researcher",
     details: {
-      pitch: "Ending static infrastructural hazards. An adaptive kinetic barrier that transitions from liquid to solid exclusively upon violent impact — punishing speeders, yielding to ambulances.",
+      pitch: "Ending static infrastructural hazards. District Winner at INSPIRE Awards - MANAK, State Qualifier.",
       sections: [
         {
-          title: "The Failure of Concrete",
-          content: "Traditional humps delay ambulances by critical seconds, damage vehicle suspension, waste fuel through forced stop-and-go cycles, and generate intense acoustic pollution indiscriminately across residential zones, hospitals, and school campuses."
+          title: "Fluid Dynamics",
+          content: "Amylopectin colloid in PEG 400. Low shear = liquid. High shear = particle jamming = instant rigid barrier."
         },
         {
-          title: "Fluid Dynamics Engineering",
-          content: "Harnesses shear-thickening non-Newtonian fluids (amylopectin colloid suspended in a PEG 400 matrix). At low shear (lawful speeds), particles slide freely — the bump stays liquid, compressing gently. At high shear (speeding impact), rapid hydroclustering triggers particle jamming, instantly solidifying the mass into a punishing rigid barrier."
-        },
-        {
-          title: "Viability & Data",
+          title: "Proven Data",
           content: [
-            "Achieved a mathematically proven 65.15% reduction in speeding vs. concrete's 52.6%.",
-            "Vertical G-force jolt reduced from 1.2g (concrete) to 0.3–0.5g for lawful drivers.",
-            "40–50% drop in perceived noise pollution in acoustic comparisons.",
-            "Contained within extreme-pressure Kevlar hosing coated in industrial PVC. Awarded District Winner by INSPIRE Awards - MANAK, advanced to State Qualification."
+            "65.15% speed reduction vs. concrete's 52.6%.",
+            "G-force jolt: 0.3–0.5g vs. concrete's 1.2g.",
+            "40–50% noise reduction. 60–70% the installation cost."
           ]
         }
       ]
@@ -362,31 +406,41 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "04",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "Multiverse Explorer",
     desc: "Privacy-first desktop application generating branching life-simulations via local LLMs and Directed Multigraphs.",
     tags: ["PYTHON", "LLMS", "NETWORKX", "CHROMADB"],
     category: "AI Desktop Application",
     img: "https://images.unsplash.com/photo-1544256718-3baf237f39ca?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Solo Developer",
     details: {
       pitch: "Private Intelligence: Synthesizing scattered thoughts, chats, and calendars into a unified Life Graph to forecast future timelines without data leaving your local machine.",
       sections: [
         {
-          title: "The Problem",
-          content: "Human decisions rely on fragmented data—journals, WhatsApp chats, and calendars—trapped in silos. Generic AI advice lacks deep context, leading to decision paralysis."
+          title: "The Fragmentation Problem",
+          content: "Human decisions rely on fragmented data—journals, WhatsApp chats, and calendars—trapped in silos. Generic AI advice is too broad, while manual reflection is prone to cognitive biases and decision paralysis. There is no tool that 'knows' the user's history well enough to provide contextualized projections."
         },
         {
-          title: "The Graph Engine",
+          title: "The Life-Graph Engine",
           content: [
-            "Transforms unstructured text into a Directed Multigraph using NetworkX and ChromaDB.",
-            "Uses a high-speed keyword-based extraction layer for emotion and entity mapping to avoid expensive LLM calls.",
-            "Establishes topological relationships between chronological events and emotional states."
+            "Transforms unstructured text into a Directed Multigraph using NetworkX and ChromaDB vector store.",
+            "High-speed keyword-based extraction for emotion mapping (Stress, Joy, Burnout), entity recognition via capitalized pattern matching, and goal identification.",
+            "Every entry connects to TimePoint and Entity nodes, creating a web of topological relationships.",
+            "Unified LifeEvent model normalizes data from journals, WhatsApp exports, and iCalendar files."
           ]
         },
         {
           title: "Multiverse Simulation",
-          content: "Concurrently generates multiple future timelines utilizing RAG and local models (phi4-mini). Each projected future carries a narrative arc, quantifiably projected emotional profiles (Stress/Burnout), and longitudinal financial curves."
+          content: "RAG pipeline queries the Knowledge Graph for relevant historical context, then concurrently generates 2–5 distinct future timelines. Each carries a narrative arc, quantifiable emotional profiles (Stress/Burnout gauges), longitudinal financial curves in INR, and actionable micro-steps. A custom Robust JSON Extractor enables the use of smaller local models like phi4-mini."
+        },
+        {
+          title: "Visual Analytics",
+          content: [
+            "Emotional heatmaps for inter-timeline comparison of well-being trajectories.",
+            "Real-time burnout risk gauges for each projected path.",
+            "Interactive network visualization of the user's personal knowledge graph."
+          ]
         }
       ]
     }
@@ -394,30 +448,42 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "05",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "MindFlow",
     desc: "AI-powered spatial learning platform that parses dense textbooks into interactive, infinite knowledge graphs.",
     tags: ["WEB", "GSAP", "LLM", "SPATIAL UI"],
     category: "Web Platform",
     img: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Designer & Developer",
     details: {
       pitch: "Stop reading. Start perceiving. MindFlow transforms chaotic, static educational documents into a structured, visual universe.",
       sections: [
         {
-          title: "Information Fragmentation",
-          content: "Students drown in dense text and chaotic lecture notes. The cognitive load of manually organizing thoughts often exceeds the energy required to actually learn the material."
+          title: "The Cognitive Overload Crisis",
+          content: "Students drown in static data—chaotic lecture notes, dense 50-page PDFs, fragmented topic relationships. The cognitive load of manually organizing thoughts often exceeds the energy required to actually learn the material. Before MindFlow, studying was a linear chore."
         },
         {
-          title: "Neural Synthesis",
-          content: "The proprietary engine consumes raw PDFs or audio and standardizes them into clean data nodes. It then harnesses AI to cross-reference latent relationships and automatically builds an infinite interactive canvas."
-        },
-        {
-          title: "Ethereal Architecture",
+          title: "Neural Synthesis Engine",
           content: [
-            "Built with an Awwwards-tier 'Ethereal Glass' aesthetic holding OLED-blacks to reduce eye strain.",
-            "Utilizes Lenis and GSAP for cinematic, spring-physics motion, turning traditional studying into spatial exploration."
+            "Parses raw PDFs, voice notes, or broad topics into clean standardized data points.",
+            "AI cross-references latent relationships and identifies hidden connections between concepts.",
+            "Automatically generates an interactive, infinite Knowledge Graph — a 'Vault of Infinite Knowledge.'",
+            "Universal exports to High-Res PNG, Clean PDF, and Interactive HTML for shared living mind maps."
           ]
+        },
+        {
+          title: "Ethereal Glass Design",
+          content: [
+            "OLED-Black Foundation reducing eye strain during prolonged study sessions.",
+            "Glassmorphism with Double-Bezel components and frosted glass textures for a premium, futuristic feel.",
+            "Cinematic motion powered by GSAP and Lenis Scroll — every interaction feels fluid and alive.",
+            "Bento-Grid Architecture making complex features approachable."
+          ]
+        },
+        {
+          title: "Impact",
+          content: "By visualizing how concepts connect rather than listing them linearly, users report a 40% increase in information retention and significant reduction in time spent organizing notes."
         }
       ]
     }
@@ -432,21 +498,31 @@ export const PAST_PROJECTS: ProjectData[] = [
     category: "AI Agent Tooling",
     img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / AI Skill Engineer",
     details: {
-      pitch: "Elevating AI-generated scripts to professional 3Blue1Brown-quality educational sequences by teaching language models spatial awareness.",
+      pitch: "Elevating AI-generated scripts to professional 3Blue1Brown-quality educational sequences by teaching language models the actual craft of animation.",
       sections: [
         {
-          title: "The Automation Wall",
-          content: "When asked to code animations via Manim, standard AIs fail visually. Objects pile up, equations merge into blobs, and the pacing feels inherently robotic due to a lack of visual-spatial understanding."
+          title: "Why AI Fails at Animation",
+          content: [
+            "Visual Chaos: AI lacks spatial awareness — objects pile up, equations merge into unreadable blobs, z-index errors create visual messes.",
+            "Robotic Pacing: Timing is linear and boring, lacking the dynamic 'aha!' moments that make educational videos engaging.",
+            "Version Confusion: AI hallucinates syntax, mixing up ManimCE with ManimGL, causing compilation failures.",
+            "No Big Picture: AI agents code everything at once without storyboarding, color palette management, or multi-scene structuring."
+          ]
         },
         {
-          title: "A Four-Pillar Studio",
+          title: "The Four-Pillar Studio",
           content: [
-            "1. The Director (manim-director): Halts raw output to properly storyboard concepts and plan scene pacing.",
-            "2. The Animator (manim-animator): Applies mathematical typesetting (LaTeX) and choreographs camera movements using 24 rigorous syntax rules.",
-            "3. The Critic (manim-critic): Functions as an automated visual QA, correcting 14 common rendering artifacts like z-index overlaps.",
-            "4. The Editor (manim-editor): Packages the final assets into WebM, MP4, or GIF structures dynamically."
+            "The Director (manim-director): Stops to plan. Takes vague concepts and structures scene-by-scene narrative arcs with professional color theory and visual pacing.",
+            "The Animator (manim-animator): 24 rigorous rules ensuring correct ManimCE syntax, proper LaTeX typesetting, and advanced camera choreography patterns.",
+            "The Critic (manim-critic): Visual QA detecting and fixing 14 common rendering artifacts — overlapping objects, ghost elements, broken transitions.",
+            "The Editor (manim-editor): Handles project structure, partial rendering, scene concatenation, and exports to GIF/WebM/MP4 with voiceover sync."
           ]
+        },
+        {
+          title: "Impact",
+          content: "Eliminates hours of frustrating prompting loops. Animations now feature consistent design languages, professional color palettes, and fluid transitions out of the box. Compatible with Claude Code, Cursor, GitHub Copilot, and Windsurf via the standard skills format."
         }
       ]
     }
@@ -454,27 +530,37 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "07",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "Silo",
-    desc: "Android conceptual initiative utilizing deep OS integrations to aggregate fragmented digital bookmarks visually.",
+    desc: "Android initiative utilizing deep OS integrations to aggregate fragmented digital bookmarks into a unified visual archive.",
     tags: ["ANDROID", "UX DESIGN", "METADATA", "MOBILE"],
     category: "Android Application",
     img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Conceptualization, UI/UX Design, Development",
     details: {
       pitch: "A universal gathering tool bridging the gap between discovery and storage, stripping away platform noise for a unified inspiration board.",
       sections: [
         {
-          title: "The Digital Graveyard",
-          content: "Bookmarks are trapped within the walled gardens of Twitter, YouTube, Instagram, and Chrome. Discovering content is simple; retrieving it hours later is a fragmented nightmare."
+          title: "The Fragmented Digital Brain",
+          content: "We bookmark articles in Chrome, save videos on YouTube, heart tracks on Spotify, save threads on X, and screenshot inspiration to the camera roll. When we need that brilliant recipe or design reference, we face cognitive overload — 'Where did I save it?' Our bookmarks are trapped in the walled gardens where they were discovered."
         },
         {
           title: "Frictionless Capture",
-          content: "By hooking directly into Android's native OS Share Sheet, Silo remains one tap away. Operating silently in the background, it scrapes Open Graph metrics, Twitter metadata, and hero images immediately upon receiving a URL."
+          content: "By hooking directly into Android's native OS Share Sheet, Silo is always one tap away. Whether in a browser, social media app, or gallery — hit Share, select Silo, done. Under the hood, it automatically scrapes Open Graph and Twitter metadata, pulls high-resolution hero images, and determines source platform for contextual formatting."
         },
         {
           title: "Visual-First Architecture",
-          content: "Silo shatters sterile list-views, projecting data onto a dynamic, staggered masonry layout based on content origin (music, articles, social threads), wrapped in a fluid, minimalist UI featuring expansive FAB interactions."
+          content: [
+            "Dynamic, responsive staggered masonry grid displaying items by visual weight — a Pinterest-like inspiration board replacing sterile text lists.",
+            "Auto-categorization by content origin (Video, Music, Article, Social, Note) with fluid pill-shaped filter chips.",
+            "Immersive lighting with subtle transparent color gradients and animated expandable Floating Action Button.",
+            "Unified card design language normalizing disparate platform content into visual harmony."
+          ]
+        },
+        {
+          title: "Takeaway",
+          content: "Silo proves that by leveraging system-level integrations and automated metadata scraping, we can bridge the gap between discovery and storage. The result is a quiet, personal sanctuary for inspiration, research, and memories."
         }
       ]
     }
@@ -482,30 +568,42 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "08",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "Project VYXM",
     desc: "A conceptual 'Apple-tier' digital branding experience utilizing 120-frame high-fidelity canvas sequences.",
     tags: ["NEXT.JS", "CANVAS", "FRAMER MOTION", "BRANDING"],
     category: "Immersive Web",
     img: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Brand & Web Engineer",
     details: {
-      pitch: "Sound is invisible. We made it tangible. Validating a conceptual titanium consumer product through sheer digital storytelling.",
+      pitch: "Sound is invisible. We made it tangible. Can a digital experience be so compelling that it makes a conceptual product feel commercially ready?",
       sections: [
         {
-          title: "Concept Into Reality",
-          content: "VYXM tests if a digital experience can be compelling enough to make a non-existent hardware product feel commercially ready. It is a masterclass in brand identity, leveraging an 'Industrial-Premium' OLED aesthetic."
+          title: "Beyond 'Fake'",
+          content: "Most creative exercises stop at a logo or mockup. VYXM delivers a fully functional, high-performance experience for a non-existent product — a conceptual titanium headphone. The name, visual identity, technical specs, and immersive digital journey were all crafted from scratch to project luxury, precision, and futuristic engineering."
         },
         {
-          title: "Cinematic Rendering Engine",
+          title: "Cinematic Scroll Engineering",
           content: [
-            "Abandoned standard <img> tags for a custom-built HTML5 Canvas-based rendering engine to process a massive 120-frame rotary sequence.",
-            "Ties deep scroll-velocity tracking to 3D product rotations seamlessly at 60fps across mobile and ultra-wide displays."
+            "Custom-built HTML5 Canvas rendering engine processing a 120-frame rotary product sequence at 60fps.",
+            "Deep scroll-velocity tracking tied to 3D product rotation — seamless across mobile and 4K displays.",
+            "Custom asset preloader with batch-loading logic preventing stuttering or blank frames.",
+            "Responsive Canvas logic mimicking object-fit: cover within the rendering context."
           ]
         },
         {
-          title: "Data Visualization",
-          content: "Technical hardware specs dynamically animate into blueprint-style bento grids guided by Framer Motion's spring physics, maximizing user engagement without inducing loading stutters."
+          title: "Industrial-Premium Aesthetic",
+          content: [
+            "OLED Black Foundation making the product pop against true blacks.",
+            "Micro-animations using Framer Motion spring physics for organic stat reveals and button interactions.",
+            "Blueprint-style anatomy graphics visualizing internal 50mm Titanium driver architecture.",
+            "Bento grid layouts for clean, readable data presentation at a glance."
+          ]
+        },
+        {
+          title: "Result: Total Brand Immersion",
+          content: "VYXM demonstrates the ability to conceptualize a brand from zero, visualize the impossible through motion, master complex asset management, and create a 'Ready-to-Buy' psychological state through high-end design patterns."
         }
       ]
     }
@@ -513,27 +611,42 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "09",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "Coffee-Class",
     desc: "Offline-first Flutter/Django educational LMS prioritizing aesthetic focus for competitive institution cohorts.",
     tags: ["FLUTTER", "DJANGO", "FIREBASE", "MOBILE"],
     category: "Full Stack Mobile",
     img: "https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Full-Stack Developer",
     details: {
       pitch: "A warm, distraction-free learning environment—right in your pocket. Reclaiming student focus from chaotic mass internet delivery.",
       sections: [
         {
-          title: "The Fragmentation Dilemma",
-          content: "Students preparing for brutal competitive exams lose time sorting disjointed PDFs and unprotected video links. Traditional corporate LMS layouts actively discourage prolonged usage."
+          title: "The Problem",
+          content: "Coaching centers struggle with content fragmentation (loose PDFs and scattered YouTube links), internet dependency in low-connectivity areas, zero insight into student progress, and generic corporate LMS layouts that discourage prolonged engagement."
         },
         {
-          title: "The Architecture",
-          content: "A comprehensive Flutter frontend driven by a Django security core. Supports robust 'Offline-First' freedom allowing secure caching of massive video assets and progressive remote syncing utilizing Firebase layers upon reconnection."
+          title: "Multi-Modal Learning",
+          content: [
+            "Hierarchical content paths: Subjects → Chapters → Topics ensuring logical syllabus progression.",
+            "Rich Video Lectures with resume-where-you-left-off. Audio Podcasts for revision on the go.",
+            "Structured PDF Notes for detailed reference.",
+            "Offline-First architecture: download manager for lectures, progress syncs automatically on reconnection via Firebase."
+          ]
         },
         {
-          title: "The 'Coffee' Paradigm",
-          content: "Curated UI avoiding 'clinical white'. Designed around warm espresso tonal scales and deep Amethyst dark modes to alleviate optical strain during sustained midnight study cycles."
+          title: "The 'Coffee' Design Philosophy",
+          content: [
+            "Light Mode uses warm Espresso, Latte, and Cappuccino tones — a study-cafe atmosphere.",
+            "Dark Mode (Amethyst): purple-accented theme minimizing blue light for late-night sessions.",
+            "Micro-animations and Lottie-driven feedback making the experience feel alive.",
+            "Intelligent Completion Thresholds marking topics as finished only when genuinely consumed."
+          ]
+        },
+        {
+          title: "Security & Administration",
+          content: "Custom Roll-Number authentication replacing generic emails. Batch management assigns content to specific cohorts. Role-based access separates Student and Admin portals. Django backend handles complex user relations with Firebase powering real-time sync."
         }
       ]
     }
@@ -541,23 +654,33 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "10",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "Project: Astronaut",
     desc: "A cinematic, immersive web design experiment leveraging Three.js shaders and scroll-bound kinematics.",
     tags: ["THREE.JS", "GLSL", "GSAP", "LENIS"],
     category: "Experimental UI",
     img: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Design Experimentalist",
     details: {
-      pitch: "Great design isn't just about how it looks; it's about how it moves. A cinematic voyage through the web.",
+      pitch: "Great design isn't just about how it looks; it's about how it moves. A cinematic voyage through the web — a 'vibe-first' interface where every scroll feels like a slow-motion spacewalk.",
       sections: [
         {
           title: "The Experiment",
-          content: "A technical playground designed to explore WebGL custom shaders seamlessly bound to multi-axis scroll kinematics, creating an illusion of true depth without overwhelming system memory."
+          content: "A technical playground designed to push the boundaries of immersive storytelling integrated into web navigation. Inspired by sleek aerospace aesthetics and cinematic sci-fi, this project explores atmospheric WebGL shaders seamlessly bound to multi-axis scroll kinematics."
         },
         {
-          title: "Execution",
-          content: "Utilizing Lenis smooth scrolling tethered to a Three.js Orthographic camera setup. As vertical velocity increases, environmental visual shaders dynamically stretch and warp to provide a literal sense of digital acceleration to the 'Astronaut' sequences."
+          title: "Technical Wins",
+          content: [
+            "Lenis Smooth Scroll provides momentum-based scrolling. Scroll velocity is linked to WebGL background distortion — the page literally stretches and warps as you accelerate.",
+            "Three.js Orthographic camera flat-renders distorted textures efficiently, keeping animations at steady 60fps on standard hardware.",
+            "Pin-and-slide horizontal gallery via GSAP ScrollTrigger creates lateral exploration breaking traditional vertical flow.",
+            "Minimalist corner-weighted UI with split-text animations revealing information only upon interaction."
+          ]
+        },
+        {
+          title: "Design Disclaimer",
+          content: "This is a Design Experiment & Concept Try-out — a 'fake concept' built as a technical playground for practicing agency-grade web design. It does not represent a commercial product, but demonstrates mastery over motion logic, visual composition, and performance optimization."
         }
       ]
     }
@@ -565,26 +688,40 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "11",
     status: "COMPLETED",
-    year: "2026",
+    year: "2025",
     title: "PCM Focus",
     desc: "Gamified STEM tracking companion utilizing psychological XP loops to combat rigorous academic burnout.",
     tags: ["FLUTTER", "HIVE", "RIVERPOD", "GAMIFICATION"],
     category: "Mobile Application",
     img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop",
     link: "#",
+    role: "Creator / Lead Developer",
     details: {
       pitch: "Treating competitive STEM preparation as a rewarding, measurable journey rather than a fragmented nightmare.",
       sections: [
         {
-          title: "Data Blindness",
-          content: "Students don't inherently know if they've neglected Mathematics to over-index on Chemistry until they fail an exam. Tracking needs to be granular and subject-specific."
+          title: "Why Subject-Specific Tracking Matters",
+          content: "Generic timers group all study time into one unstructured bucket. A student doesn't inherently know if they spent 80% of the week on Math and completely neglected Chemistry until they fail an exam. PCM Focus mandates subject categorization (Physics, Chemistry, Mathematics) before every session, fundamentally changing the app's analytical utility."
         },
         {
-          title: "The Loop",
+          title: "The Gamification Loop",
           content: [
-            "Mandated subject categorization prior to sprint initialization maps all historical data into visual performance charts per discipline.",
-            "Combats fatigue via an integrated XP economy and daily streak system, directly mapping effort to satisfying retention mechanics."
+            "XP System: Completing focus sessions rewards Experience Points, transforming grueling study into a satisfying game loop.",
+            "Daily Streaks: Dashboard displays current streak with motivational fire emojis. The fear of breaking the streak powers daily consistency.",
+            "Pomodoro Engine with Focus/Short Break/Long Break modes, easy toggling, and fatigue-reducing interval structure."
           ]
+        },
+        {
+          title: "Comprehensive Analytics",
+          content: [
+            "Focus Hours Chart with visual tracking over Today/Weekly/Monthly filters.",
+            "Subject Breakdown showing which disciplines receive most attention — preventing accidental neglect of weak subjects.",
+            "Data-driven confidence replacing gut-feeling study assessment."
+          ]
+        },
+        {
+          title: "Design",
+          content: "Sleek dark mode default reducing eye strain during late-night sessions. Micro-interactions from bouncing buttons to fluid chart rendering make studying feel substantially less dry. The focus interface itself remains minimal — preventing the app from becoming its own distraction."
         }
       ]
     }

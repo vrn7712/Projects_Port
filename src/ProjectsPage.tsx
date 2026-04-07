@@ -622,7 +622,8 @@ const ProjectModal = ({ project, onClose }: { project: ProjectData; onClose: () 
     transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     className="fixed inset-0 z-[100] bg-[#F2F0E9] overflow-y-auto overflow-x-hidden text-[#1A1A1A]"
   >
-    <div className="sticky top-0 w-full p-6 md:p-8 flex justify-between items-center z-50 pointer-events-none">
+    {/* Sticky close bar */}
+    <div className="sticky top-0 w-full p-6 md:p-8 flex justify-between items-center z-50 pointer-events-none bg-gradient-to-b from-[#F2F0E9] via-[#F2F0E9]/90 to-transparent pb-16">
        <button 
           onClick={onClose} 
           className="pointer-events-auto font-mono text-sm md:text-base uppercase tracking-widest font-black bg-[#1A1A1A] text-[#F2F0E9] px-6 py-4 hover:bg-[#EB5939] hover:text-[#1A1A1A] transition-colors flex items-center gap-4 border-[4px] border-[#1A1A1A]"
@@ -632,51 +633,94 @@ const ProjectModal = ({ project, onClose }: { project: ProjectData; onClose: () 
        </button>
     </div>
 
-    <div className="min-h-screen pt-12 pb-32 px-6 md:px-12 flex flex-col items-center">
+    <div className="min-h-screen pt-4 pb-32 px-6 md:px-12 flex flex-col items-center">
        <div className="max-w-5xl w-full">
           
-          <h1 className="font-serif text-[clamp(3rem,10vw,8rem)] leading-[0.85] font-black uppercase tracking-tighter mb-8 break-words text-[#1A1A1A]">
-            {project.title}
-          </h1>
+          {/* Header cluster */}
+          <div className="mb-8">
+            <div className="flex flex-wrap items-center gap-4 font-mono text-sm uppercase tracking-widest font-bold mb-6 opacity-60">
+              <span>{project.year}</span>
+              <span className="w-1.5 h-1.5 bg-[#EB5939] rounded-full" />
+              <span>{project.category}</span>
+              {project.role && (
+                <>
+                  <span className="w-1.5 h-1.5 bg-[#EB5939] rounded-full" />
+                  <span>{project.role}</span>
+                </>
+              )}
+            </div>
+
+            <h1 className="font-serif text-[clamp(3rem,10vw,8rem)] leading-[0.85] font-black uppercase tracking-tighter break-words text-[#1A1A1A]">
+              {project.title}
+            </h1>
+          </div>
           
-          <div className="flex flex-wrap gap-4 font-mono text-sm md:text-base uppercase tracking-widest font-bold mb-16">
-            <span className="border-[4px] border-[#1A1A1A] px-6 py-2 bg-[#1A1A1A] text-[#F2F0E9]">{project.year}</span>
-            <span className="border-[4px] border-[#1A1A1A] px-6 py-2 bg-[#EB5939] text-[#1A1A1A]">{project.category}</span>
+          {/* Tags */}
+          <div className="flex flex-wrap gap-3 mb-16">
+            {project.tags.map((tag, i) => (
+              <span key={i} className="font-mono text-xs md:text-sm uppercase tracking-widest font-black border-[3px] border-[#1A1A1A] px-4 py-2 hover:bg-[#1A1A1A] hover:text-[#F2F0E9] transition-colors cursor-default">
+                {tag}
+              </span>
+            ))}
           </div>
 
+          {/* Hero image */}
           <div className="w-full aspect-video border-[12px] border-[#1A1A1A] mb-20 overflow-hidden bg-[#1A1A1A] relative shadow-[24px_24px_0_0_rgba(235,89,57,1)]">
              <img src={project.img} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 opacity-90" alt="Project Hero" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-             
-             <div className="lg:col-span-12 mb-12">
-               <h2 className="font-serif text-5xl md:text-6xl font-black uppercase tracking-tighter mb-8 text-[#1A1A1A]">
-                 The Pitch
-               </h2>
-               <p className="font-mono text-2xl md:text-4xl font-bold leading-tight px-6 border-l-[8px] border-[#EB5939] text-[#1A1A1A]">
-                 {project.details.pitch}
-               </p>
-             </div>
-
-             <div className="lg:col-span-12 flex flex-col gap-20 font-mono text-lg md:text-xl leading-relaxed">
-                {project.details.sections.map((sec, idx) => (
-                  <div key={idx} className="border-t-[4px] border-[#1A1A1A] pt-8">
-                    <h3 className="font-mono text-2xl md:text-3xl font-black uppercase tracking-widest mb-8 text-[#EB5939] flex items-center gap-4">
-                      <Star className="w-6 h-6 fill-current" />
-                      {sec.title}
-                    </h3>
-                    {Array.isArray(sec.content) ? (
-                      <ul className="list-disc list-inside flex flex-col gap-6 font-bold opacity-90">
-                        {sec.content.map((c, i) => <li key={i}>{c}</li>)}
-                      </ul>
-                    ) : (
-                      <p className="font-bold opacity-90">{sec.content}</p>
-                    )}
-                  </div>
-                ))}
-             </div>
+          {/* Pitch section */}
+          <div className="mb-20">
+            <h2 className="font-serif text-5xl md:text-6xl font-black uppercase tracking-tighter mb-8 text-[#1A1A1A]">
+              The Pitch
+            </h2>
+            <p className="font-mono text-xl md:text-3xl font-bold leading-snug px-6 md:px-8 border-l-[8px] border-[#EB5939] text-[#1A1A1A]">
+              {project.details.pitch}
+            </p>
           </div>
+
+          {/* Detail sections */}
+          <div className="flex flex-col gap-16">
+            {project.details.sections.map((sec, idx) => (
+              <div key={idx} className="border-t-[4px] border-[#1A1A1A] pt-8">
+                <div className="flex items-start gap-4 md:gap-6 mb-8">
+                  <span className="font-mono text-4xl md:text-5xl font-black text-[#EB5939] leading-none mt-1 select-none">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="font-mono text-xl md:text-2xl font-black uppercase tracking-widest text-[#1A1A1A] pt-2">
+                    {sec.title}
+                  </h3>
+                </div>
+                {Array.isArray(sec.content) ? (
+                  <div className="flex flex-col gap-5 pl-2 md:pl-16">
+                    {sec.content.map((c, i) => (
+                      <div key={i} className="flex gap-4 items-start">
+                        <span className="w-2.5 h-2.5 bg-[#EB5939] flex-shrink-0 mt-2.5" />
+                        <p className="font-mono text-base md:text-lg font-bold leading-relaxed opacity-85">{c}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="font-mono text-base md:text-lg font-bold leading-relaxed opacity-85 pl-2 md:pl-16">{sec.content}</p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom link */}
+          {project.link && project.link !== "#" && (
+            <div className="mt-20 pt-12 border-t-[4px] border-[#1A1A1A]">
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex border-[4px] border-[#1A1A1A] px-10 py-5 font-mono text-lg md:text-2xl font-black uppercase hover:bg-[#EB5939] hover:border-[#EB5939] hover:text-[#1A1A1A] transition-colors items-center gap-4 group"
+              >
+                View Project <MoveUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform" />
+              </a>
+            </div>
+          )}
+
        </div>
     </div>
   </motion.div>
