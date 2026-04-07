@@ -59,7 +59,7 @@ export const FEATURED_PROJECTS: ProjectData[] = [
   {
     id: "02",
     status: "FEATURED",
-    year: "2025",
+    year: "2026",
     title: "AlertDrive",
     desc: "Award-winning IoT smart helmet ecosystem monitoring drowsiness, distraction, and impairment in real-time.",
     tags: ["ESP32", "IOT", "SENSORS", "MOBILE APP"],
@@ -83,7 +83,7 @@ export const FEATURED_PROJECTS: ProjectData[] = [
         },
         {
           title: "Recognition",
-          content: "National Finalist at the Rashtriya Bal Vaigyanik Pradarshani (RBVP) 2025 in Bhopal, validating extreme sensor-fusion reliability under rigorous institutional testing across District and State levels."
+          content: "National Finalist at the Rashtriya Bal Vaigyanik Pradarshani (RBVP) 2026 in Bhopal, validating extreme sensor-fusion reliability under rigorous institutional testing across District and State levels."
         }
       ]
     }
@@ -91,7 +91,7 @@ export const FEATURED_PROJECTS: ProjectData[] = [
   {
     id: "03",
     status: "FEATURED",
-    year: "2025",
+    year: "2026",
     title: "Non-Newtonian Speedbump",
     desc: "Adaptive traffic calming device using shear-thickening fluids — soft for lawful drivers, rigid against speeders.",
     tags: ["MATERIALS SCIENCE", "FLUID DYNAMICS", "ENGINEERING"],
@@ -124,9 +124,138 @@ export const FEATURED_PROJECTS: ProjectData[] = [
 ];
 
 // ─── CURRENTLY WORKING ON ───────────────────────────────────────────────
-// Projects actively in development. User will populate this next.
+// Projects actively in development.
 
-export const CURRENT_PROJECTS: ProjectData[] = [];
+export const CURRENT_PROJECTS: ProjectData[] = [
+  {
+    id: "C1",
+    status: "IN PROGRESS",
+    year: "2026",
+    title: "VoidOS",
+    desc: "A minimal, ground-up operating system kernel written in C and Assembly — exploring memory management, process scheduling, and bare-metal I/O.",
+    tags: ["C", "ASSEMBLY", "OS DEVELOPMENT", "LOW-LEVEL"],
+    category: "Operating System",
+    img: "https://images.unsplash.com/photo-1629654291663-b91ad427698f?q=80&w=800&auto=format&fit=crop",
+    link: "#",
+    details: {
+      pitch: "Understanding the machine at its most fundamental layer. VoidOS is a pedagogical kernel built from absolute zero — no frameworks, no abstractions, just raw silicon.",
+      sections: [
+        {
+          title: "Why Build an OS?",
+          content: "Modern developers operate atop mountains of abstraction. VoidOS strips it all away to understand exactly how a CPU boots, how memory is paged, and how interrupts choreograph multitasking at the hardware level."
+        },
+        {
+          title: "Current Architecture",
+          content: [
+            "Custom bootloader written in x86 Assembly transitioning from Real Mode to Protected Mode.",
+            "Basic kernel in C implementing a flat memory model with rudimentary paging.",
+            "Interrupt Descriptor Table (IDT) handling keyboard input and timer ticks.",
+            "VGA text-mode terminal driver with cursor management and scrolling."
+          ]
+        },
+        {
+          title: "Roadmap",
+          content: "Targeting a minimal userspace with a basic shell, a simple FAT16 filesystem driver, and round-robin process scheduling. The long-term vision is a lightweight, auditable microkernel that can run on real x86 hardware."
+        }
+      ]
+    }
+  },
+  {
+    id: "C2",
+    status: "IN PROGRESS",
+    year: "2026",
+    title: "Meridian",
+    desc: "A privacy-first search engine leveraging semantic embeddings and local index shards to deliver relevant results without surveillance.",
+    tags: ["PYTHON", "RUST", "EMBEDDINGS", "SEARCH"],
+    category: "Search Infrastructure",
+    img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+    link: "#",
+    details: {
+      pitch: "Search should serve the user, not profile them. Meridian is an independent search engine built on semantic understanding rather than ad-auction ranking.",
+      sections: [
+        {
+          title: "The Problem With Search",
+          content: "Mainstream search engines have devolved into ad-delivery platforms. Results are ranked by revenue potential, not relevance. Meridian re-centers the equation around pure information retrieval."
+        },
+        {
+          title: "Technical Foundation",
+          content: [
+            "Web crawler built in Rust for high-throughput, memory-safe page fetching and DOM extraction.",
+            "Semantic embedding pipeline using lightweight transformer models to index pages by meaning, not just keywords.",
+            "Distributed index shards enabling horizontal scaling across commodity hardware.",
+            "Zero-tracking query processing — no user profiles, no search history retention."
+          ]
+        },
+        {
+          title: "Integration Vision",
+          content: "Meridian is designed to serve as the default engine for Project Nebula (custom browser), creating a fully sovereign browsing stack from search to rendering."
+        }
+      ]
+    }
+  },
+  {
+    id: "C3",
+    status: "IN PROGRESS",
+    year: "2026",
+    title: "Nebula",
+    desc: "A custom-built web browser engineered from scratch — integrating Meridian search and prioritizing speed, privacy, and a distraction-free reading experience.",
+    tags: ["C++", "WEBVIEW", "UI ENGINE", "PRIVACY"],
+    category: "Web Browser",
+    img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
+    link: "#",
+    details: {
+      pitch: "The browser is the most used application on the planet, yet every major one is built by an advertising company. Nebula is a browser built by a user, for users.",
+      sections: [
+        {
+          title: "Design Thesis",
+          content: "Browsers have become bloated operating systems — riddled with telemetry, notification spam, and visual noise. Nebula strips the browser back to its core purpose: rendering the web beautifully and quickly."
+        },
+        {
+          title: "Architecture Goals",
+          content: [
+            "Lightweight rendering pipeline leveraging a minimal Chromium-based webview core for compatibility.",
+            "Native integration with Meridian search engine — no Google dependency.",
+            "Built-in reader mode with automatic article extraction and typography optimization.",
+            "Tab management rethought: spatial tab grouping and session persistence by default."
+          ]
+        },
+        {
+          title: "Privacy by Architecture",
+          content: "No telemetry. No sync accounts. No sponsored tiles. Local-first bookmarks and history with optional encrypted sync. The browser forgets everything when you close it, unless you explicitly ask it to remember."
+        }
+      ]
+    }
+  },
+  {
+    id: "C4",
+    status: "QUEUED",
+    year: "2026",
+    title: "& Many More",
+    desc: "The pipeline is deep. Multiple projects spanning AI agents, embedded systems, and experimental interfaces are in active ideation and early prototyping.",
+    tags: ["AI", "EMBEDDED", "EXPERIMENTAL", "TBD"],
+    category: "Upcoming",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+    link: "#",
+    details: {
+      pitch: "The best projects haven't been announced yet. This is a living index — check back frequently.",
+      sections: [
+        {
+          title: "What's Brewing",
+          content: [
+            "Advanced AI agent skill systems for autonomous code generation and review.",
+            "Embedded hardware prototypes pushing the limits of ESP32 and RISC-V microcontrollers.",
+            "Experimental UI paradigms exploring spatial computing and gesture-driven interfaces.",
+            "Open-source tooling contributions across the Android and web ecosystems."
+          ]
+        },
+        {
+          title: "Philosophy",
+          content: "Ship fast, learn faster. Every project in this pipeline exists because it solves a problem that bothered me personally. The best engineering is autobiographical."
+        }
+      ]
+    }
+  }
+];
 
 // ─── PAST PROJECTS ──────────────────────────────────────────────────────
 // All completed works — the full archive.
@@ -168,7 +297,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "02",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "AlertDrive",
     desc: "Award-winning IoT smart helmet ecosystem monitoring drowsiness, distraction, and impairment in real-time.",
     tags: ["ESP32", "IOT", "SENSORS", "MOBILE APP"],
@@ -192,7 +321,7 @@ export const PAST_PROJECTS: ProjectData[] = [
         },
         {
           title: "Recognition",
-          content: "National Finalist at the Rashtriya Bal Vaigyanik Pradarshani (RBVP) 2025 in Bhopal, validating extreme sensor-fusion reliability under rigorous institutional testing across District and State levels."
+          content: "National Finalist at the Rashtriya Bal Vaigyanik Pradarshani (RBVP) 2026 in Bhopal, validating extreme sensor-fusion reliability under rigorous institutional testing across District and State levels."
         }
       ]
     }
@@ -200,7 +329,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "03",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "Non-Newtonian Speedbump",
     desc: "Adaptive traffic calming device using shear-thickening fluids — soft for lawful drivers, rigid against speeders.",
     tags: ["MATERIALS SCIENCE", "FLUID DYNAMICS", "ENGINEERING"],
@@ -233,7 +362,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "04",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "Multiverse Explorer",
     desc: "Privacy-first desktop application generating branching life-simulations via local LLMs and Directed Multigraphs.",
     tags: ["PYTHON", "LLMS", "NETWORKX", "CHROMADB"],
@@ -265,7 +394,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "05",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "MindFlow",
     desc: "AI-powered spatial learning platform that parses dense textbooks into interactive, infinite knowledge graphs.",
     tags: ["WEB", "GSAP", "LLM", "SPATIAL UI"],
@@ -325,7 +454,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "07",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "Silo",
     desc: "Android conceptual initiative utilizing deep OS integrations to aggregate fragmented digital bookmarks visually.",
     tags: ["ANDROID", "UX DESIGN", "METADATA", "MOBILE"],
@@ -353,7 +482,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "08",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "Project VYXM",
     desc: "A conceptual 'Apple-tier' digital branding experience utilizing 120-frame high-fidelity canvas sequences.",
     tags: ["NEXT.JS", "CANVAS", "FRAMER MOTION", "BRANDING"],
@@ -384,7 +513,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "09",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "Coffee-Class",
     desc: "Offline-first Flutter/Django educational LMS prioritizing aesthetic focus for competitive institution cohorts.",
     tags: ["FLUTTER", "DJANGO", "FIREBASE", "MOBILE"],
@@ -412,7 +541,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "10",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "Project: Astronaut",
     desc: "A cinematic, immersive web design experiment leveraging Three.js shaders and scroll-bound kinematics.",
     tags: ["THREE.JS", "GLSL", "GSAP", "LENIS"],
@@ -436,7 +565,7 @@ export const PAST_PROJECTS: ProjectData[] = [
   {
     id: "11",
     status: "COMPLETED",
-    year: "2025",
+    year: "2026",
     title: "PCM Focus",
     desc: "Gamified STEM tracking companion utilizing psychological XP loops to combat rigorous academic burnout.",
     tags: ["FLUTTER", "HIVE", "RIVERPOD", "GAMIFICATION"],
