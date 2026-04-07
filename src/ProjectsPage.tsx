@@ -477,17 +477,17 @@ const PastProjectsList = ({ onSelect }: { onSelect: (proj: ProjectData) => void 
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const rows = gsap.utils.toArray<HTMLElement>(".past-row", containerRef.current);
+    const cards = gsap.utils.toArray<HTMLElement>(".past-card", containerRef.current);
     
-    rows.forEach((row) => {
-      gsap.set(row, { opacity: 0, y: 30 });
+    cards.forEach((card) => {
+      gsap.set(card, { opacity: 0, y: 30 });
       
       ScrollTrigger.create({
-        trigger: row,
+        trigger: card,
         start: "top 90%",
         once: true,
         onEnter: () => {
-          gsap.to(row, {
+          gsap.to(card, {
             opacity: 1,
             y: 0,
             duration: 0.8,
@@ -499,44 +499,67 @@ const PastProjectsList = ({ onSelect }: { onSelect: (proj: ProjectData) => void 
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="py-32 bg-[#1A1A1A] text-[#F2F0E9] relative border-b-[16px] border-[#F2F0E9]">
-      <div className="px-6 md:px-12 mb-20 flex items-center gap-8">
-         <h2 className="font-serif text-[12vw] md:text-[8vw] leading-none font-black uppercase tracking-tighter">
-           Past
-         </h2>
-         <div className="h-[4px] w-full bg-[#EB5939] flex-1 mt-4" />
+    <section ref={containerRef} className="py-32 px-6 md:px-12 bg-[#1A1A1A] text-[#F2F0E9] relative border-b-[16px] border-[#F2F0E9]">
+      <div className="mb-20 pb-8 flex flex-col md:flex-row justify-between items-start md:items-end border-b-[4px] border-[#F2F0E9]">
+        <h2 className="font-serif text-[12vw] md:text-[6vw] font-black uppercase tracking-tighter leading-none mb-6 md:mb-0">
+          Past
+        </h2>
+        <div className="font-mono text-lg md:text-2xl border-[3px] border-[#F2F0E9] px-8 py-3 font-black tracking-widest uppercase">
+          Archives
+        </div>
       </div>
 
-      <div className="relative flex flex-col w-full">
-        <div className="border-t-[4px] border-[#F2F0E9]/20 w-full" />
-        {PAST_PROJECTS.map((proj) => (
-          <button
-            key={proj.id}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        {PAST_PROJECTS.map((proj, i) => {
+          const spans = ["md:col-span-7", "md:col-span-5", "md:col-span-4", "md:col-span-4", "md:col-span-4", "md:col-span-5", "md:col-span-7", "md:col-span-6", "md:col-span-6", "md:col-span-7", "md:col-span-5"];
+          const colSpanClass = spans[i % spans.length];
+          return (
+          <button 
+            key={proj.id} 
             onClick={() => onSelect(proj)}
-            className="past-row group relative w-full flex flex-col md:flex-row items-start md:items-center justify-between py-12 md:py-16 px-6 md:px-12 border-b-[4px] border-[#F2F0E9]/20 transition-all duration-300 hover:bg-[#F2F0E9] hover:text-[#1A1A1A] text-left cursor-pointer"
+            className={cn("past-card group relative bg-[#F2F0E9] text-[#1A1A1A] border-[8px] border-[#1A1A1A] transition-transform duration-500 hover:-translate-y-2 hover:shadow-[16px_16px_0px_0px_#EB5939] flex flex-col justify-between min-h-[380px] text-left overflow-hidden cursor-pointer", colSpanClass)}
           >
-            <div className="flex items-center gap-6 md:gap-16 w-full z-10">
-              <span className="font-mono text-2xl font-black w-12">{proj.id}</span>
-              <h3 className="font-serif text-5xl md:text-7xl font-black uppercase tracking-tighter transition-transform duration-300 group-hover:translate-x-4">
-                {proj.title}
-              </h3>
-            </div>
-            
-            <div className="flex items-center gap-8 md:gap-16 z-10 mt-8 md:mt-0 ml-18 md:ml-0">
-              <span className="font-mono text-sm md:text-lg uppercase tracking-widest font-black border-[2px] border-current px-6 py-2">
-                {proj.category}
-              </span>
-              <span className="font-mono text-xl font-bold">{proj.year}</span>
-              <div className="w-12 h-12 bg-[#EB5939] text-[#1A1A1A] flex items-center justify-center rounded-full opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 hidden md:flex">
-                 <MoveUpRight className="w-6 h-6" />
-              </div>
+            {/* Background image on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 z-0">
+               <img src={proj.img} alt="" className="w-full h-full object-cover" />
             </div>
 
-            <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-[350px] aspect-video border-[8px] border-[#1A1A1A] bg-[#1A1A1A] opacity-0 scale-50 pointer-events-none transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:-rotate-3 z-20 hidden lg:block overflow-hidden shadow-2xl">
-               <img src={proj.img} alt={proj.title} className="w-full h-full object-cover grayscale opacity-80" />
+            {/* Top bar */}
+            <div className="p-6 md:p-8 border-b-[4px] border-[#1A1A1A] flex justify-between items-start bg-[#1A1A1A] text-[#F2F0E9] z-10 w-full relative">
+              <div className="font-mono text-sm uppercase tracking-widest font-bold flex items-center gap-3">
+                <span className="w-2 h-2 bg-[#EB5939] rounded-full" />
+                {proj.category}
+              </div>
+              <span className="font-mono text-sm font-bold opacity-60">
+                {proj.year}
+              </span>
+            </div>
+            
+            {/* Content */}
+            <div className="p-6 md:p-8 flex-1 flex flex-col justify-end z-10 relative w-full">
+              <span className="font-mono text-3xl font-black text-[#EB5939] mb-2 opacity-30">{proj.id}</span>
+              <h3 className="font-serif text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 transition-colors duration-300 group-hover:text-[#EB5939]">
+                {proj.title}
+              </h3>
+              <p className="font-mono text-sm md:text-base font-bold opacity-70 mb-6 max-w-lg leading-relaxed line-clamp-2">
+                {proj.desc}
+              </p>
+              
+              <div className="flex flex-wrap gap-2 text-xs uppercase font-mono font-black">
+                {proj.tags.slice(0, 3).map(tag => (
+                  <span key={tag} className="border-[2px] border-[#1A1A1A]/30 px-3 py-1">
+                    {tag}
+                  </span>
+                ))}
+                {proj.tags.length > 3 && (
+                  <span className="border-[2px] border-[#1A1A1A]/30 px-3 py-1 opacity-50">
+                    +{proj.tags.length - 3}
+                  </span>
+                )}
+              </div>
             </div>
           </button>
-        ))}
+        );})}
       </div>
     </section>
   );
@@ -588,7 +611,7 @@ const Footer = () => (
         <p className="font-mono text-sm md:text-lg font-bold opacity-80 max-w-xl mb-12 leading-relaxed">
           The developers who wield Artificial Intelligence will profoundly shape the next iteration of the Web. Let us build solutions that carry impact.
         </p>
-        <a href='mailto:vrn7712@gmail.com' className="relative inline-flex border-[4px] border-[#F2F0E9] px-12 py-6 font-mono text-xl md:text-3xl font-black uppercase hover:bg-[#EB5939] hover:border-[#EB5939] hover:text-[#1A1A1A] transition-colors items-center gap-6 group">
+        <a href='mailto:vrushal.modh@gmail.com' className="relative inline-flex border-[4px] border-[#F2F0E9] px-12 py-6 font-mono text-xl md:text-3xl font-black uppercase hover:bg-[#EB5939] hover:border-[#EB5939] hover:text-[#1A1A1A] transition-colors items-center gap-6 group">
           Contact Me <MoveUpRight className="w-8 h-8 group-hover:rotate-45 transition-transform" />
         </a>
       </div>
