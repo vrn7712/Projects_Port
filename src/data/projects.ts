@@ -39,24 +39,24 @@ export const FEATURED_PROJECTS: ProjectData[] = [
       sections: [
         {
           title: "Defiance by Design",
-          content: "The mobile market is overwhelmingly saturated with productivity tools that fundamentally contradict their purposeâ€”cluttered with intrusive banner ads, mandatory sign-ups, and paywalled essentials. Zon was architected from the ground up as the definitive antidote: a completely free, 100% open-source, and strictly offline-first application that respects the user's intelligence, time, and data privacy."
+          content: "The mobile market is overwhelmingly saturated with productivity tools that fundamentally contradict their purpose—cluttered with intrusive banner ads, mandatory sign-ups, and paywalled essentials. Zon was architected from the ground up as the definitive antidote: a completely free, 100% open-source, and strictly offline-first application that respects the user's intelligence, time, and data privacy."
         },
         {
           title: "Deep Work, Tailored To You",
           content: [
             "Fully customizable Pomodoro sprints overriding the standard 25-minute dogma, with automated work-break transitions and saveable presets for different workflows.",
-            "Curated offline ambient soundscapesâ€”Cozy Lofi, Study Musicâ€”integrated directly into the notification panel, creating an insulated acoustic environment without needing a third app.",
+            "Curated offline ambient soundscapes—Cozy Lofi, Study Music—integrated directly into the notification panel, creating an insulated acoustic environment without needing a third app.",
             "Smart alerts customizable with specific sounds or vibration-only feedback for quiet environments. Automatic Do Not Disturb integration ensures calls don't break the zone.",
             "Home screen widgets for timer control and daily stats, letting users glance at progress without opening the app."
           ]
         },
         {
           title: "Meaningful Analytics",
-          content: "A rich, visually dense analytics dashboard transforms raw data into actionable insights. GitHub-style yearly heatmaps display consistency over time, daily/weekly/monthly charts track progress, and a unique time-of-day breakdown reveals when the user is most naturally productiveâ€”allowing optimization of challenging tasks for peak hours."
+          content: "A rich, visually dense analytics dashboard transforms raw data into actionable insights. GitHub-style yearly heatmaps display consistency over time, daily/weekly/monthly charts track progress, and a unique time-of-day breakdown reveals when the user is most naturally productive—allowing optimization of challenging tasks for peak hours."
         },
         {
           title: "Unified Task Management",
-          content: "Instead of context-switching between apps, users organize their entire day directly within Zon. The built-in manager supports categorized subjects, tiered priority levels, and intuitive swipe-to-delete gesturesâ€”ensuring users always know what to tackle the moment they hit Start."
+          content: "Instead of context-switching between apps, users organize their entire day directly within Zon. The built-in manager supports categorized subjects, tiered priority levels, and intuitive swipe-to-delete gestures—ensuring users always know what to tackle the moment they hit Start."
         },
         {
           title: "Design Philosophy",
@@ -67,6 +67,54 @@ export const FEATURED_PROJECTS: ProjectData[] = [
   },
   {
     id: "02",
+    status: "FEATURED",
+    year: "2026",
+    title: "Pandora",
+    desc: "AI-powered STEM visualization engine transforming abstract physics and math into mathematically precise animations using Manim.",
+    tags: ["AI/ML", "PYTHON", "FLUTTER", "STEM"],
+    category: "Educational Platform",
+    img: "/thumbnails/Project_Pandora_Showcase.png",
+    link: "#",
+    role: "AI/ML Lead & Infrastructure Architect",
+    details: {
+      pitch: "Eliminating the 'visual gap' in STEM education. Pandora translates natural language into precise mathematical animations, making complex concepts visible for every student.",
+      sections: [
+        {
+          title: "The Visual Gap in STEM",
+          content: "STEM education in India remains heavily theoretical, leaving students struggling to visualize abstract physics and mathematical concepts. Traditional online platforms rely on pre-recorded content that offers no dynamic interactivity or adaptive personalization. Pandora bridges this gap by combining LLMs with a mathematically precise rendering engine."
+        },
+        {
+          title: "Programmatic Precision",
+          content: [
+            "Utilizes Manim (Mathematical Animation Engine) to guarantee 100% mathematical accuracy, bypassing the 'hallucination' issues of standard generative video AI.",
+            "Translates natural language prompts—such as deriving the area under a parabola—into executable Manim scripts via optimized AI pipelines.",
+            "Renders flawless LaTeX equations and precise 3D plots to academic standards, removing the programming barrier for students and educators.",
+            "Introduces a custom .pandora file format that merges static LaTeX readability with interactive, embedded animations."
+          ]
+        },
+        {
+          title: "Hybrid Intelligence Architecture",
+          content: [
+            "Hybrid cloud architecture: Distributed rendering pipeline balancing heavy compute on Raspberry Pi servers with cloud-based Manim services.",
+            "Cross-platform delivery: Unified Flutter client for Android, Desktop, and Web with optimized state management using the Provider package.",
+            "Offline-First Strategy: Aggressive edge caching and service workers support playback in rural environments with constrained network resources.",
+            "AI Pipeline: Multi-stage inference using OpenRouter APIs with prompt compression and token-efficient formatting."
+          ]
+        },
+        {
+          title: "Impact & Roadmap",
+          content: [
+            "Targets consistency in render times under 1.5 seconds and mapping 90% of the NCERT curriculum.",
+            "Engineered for low-literacy accessibility with semantic labels, high-contrast themes, and large tap targets.",
+            "Scalable design ready for integration with national digital platforms like SWAYAM and DIKSHA.",
+            "Future roadmap includes 3D Manim expansion, AR modules, and regional language support."
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: "03",
     status: "FEATURED",
     year: "2025",
     title: "AlertDrive",
@@ -81,10 +129,10 @@ export const FEATURED_PROJECTS: ProjectData[] = [
       sections: [
         {
           title: "The Crisis: A Silent Epidemic",
-          content: "India faces over 415 traffic-related deaths daily. The core issue isn't mechanicalâ€”it's human. Our team isolated three primary vectors: Drowsiness (~5% of highway fatalitiesâ€”a microsleep at 80km/h is lethal), Distraction (the #1 cause of urban collisions at 25%, with mobile use increasing crash risk by 400%), and Impairment (involved in 30% of all fatalities, where prevention must happen before ignition)."
+          content: "India faces over 415 traffic-related deaths daily. The core issue isn't mechanical—it's human. Our team isolated three primary vectors: Drowsiness (~5% of highway fatalities—a microsleep at 80km/h is lethal), Distraction (#1 cause of urban collisions at 25%, mobile use increasing crash risk by 400%), and Impairment (30% of all fatalities, where prevention must happen before ignition)."
         },
         {
-          title: "The Guardian â€” Hardware v1.0",
+          title: "The Guardian — Hardware v1.0",
           content: [
             "MPU6050 6-Axis Sensor constantly calculates the user's head pitch and roll using a complementary filter algorithm.",
             "ESP32 Dual Core processor provides sub-50ms latency for real-time kinematic monitoring.",
@@ -112,18 +160,18 @@ export const FEATURED_PROJECTS: ProjectData[] = [
     }
   },
   {
-    id: "03",
+    id: "04",
     status: "FEATURED",
     year: "2025",
     title: "Non-Newtonian Speedbump",
-    desc: "Adaptive traffic calming device using shear-thickening fluids â€” soft for lawful drivers, rigid against speeders.",
+    desc: "Adaptive traffic calming device using shear-thickening fluids — soft for lawful drivers, rigid against speeders.",
     tags: ["MATERIALS SCIENCE", "FLUID DYNAMICS", "ENGINEERING"],
     category: "Applied Physics",
     img: "/thumbnails/Non-newtonian-Speedbump.png",
     link: "https://adaptive-speedbump.netlify.app/",
     role: "Creator / Lead Researcher",
     details: {
-      pitch: "Ending static infrastructural hazards. An adaptive kinetic barrier that transitions from liquid to solid exclusively upon violent impact â€” punishing speeders, yielding to ambulances. District Winner at INSPIRE Awards - MANAK.",
+      pitch: "Ending static infrastructural hazards. An adaptive kinetic barrier that transitions from liquid to solid exclusively upon violent impact — punishing speeders, yielding to ambulances. District Winner at INSPIRE Awards - MANAK.",
       sections: [
         {
           title: "The Failure of Static Infrastructure",
@@ -136,7 +184,7 @@ export const FEATURED_PROJECTS: ProjectData[] = [
         },
         {
           title: "The Rheological Foundation",
-          content: "Harnesses shear-thickening non-Newtonian fluids (amylopectin colloid suspended in a PEG 400 matrix). At low shear (lawful speeds), particles slide freely â€” the bump stays liquid, compressing gently. At high shear (speeding impact), rapid hydroclustering triggers aggressive particle jamming, instantly solidifying the mass into a punishing rigid barrier."
+          content: "Harnesses shear-thickening non-Newtonian fluids (amylopectin colloid suspended in a PEG 400 matrix). At low shear (lawful speeds), particles slide freely — the bump stays liquid, compressing gently. At high shear (speeding impact), rapid hydroclustering triggers aggressive particle jamming, instantly solidifying the mass into a punishing rigid barrier."
         },
         {
           title: "Industrial Engineering",
@@ -150,19 +198,20 @@ export const FEATURED_PROJECTS: ProjectData[] = [
         {
           title: "Proven Efficacy",
           content: [
-            "65.15% reduction in speeding traffic vs. concrete's 52.6% â€” mathematically proven superior governance.",
-            "Vertical G-force jolt reduced from 1.2g (concrete) to 0.3â€“0.5g for lawful drivers â€” eliminating suspension damage.",
-            "40â€“50% drop in perceived noise pollution in direct head-to-head acoustic comparisons.",
-            "Manufacturing costs estimated at merely 60â€“70% of traditional concrete bump installation."
+            "65.15% reduction in speeding traffic vs. concrete's 52.6% — mathematically proven superior governance.",
+            "Vertical G-force jolt reduced from 1.2g (concrete) to 0.3–0.5g for lawful drivers — eliminating suspension damage.",
+            "40–50% drop in perceived noise pollution in direct head-to-head acoustic comparisons.",
+            "Manufacturing costs estimated at merely 60–70% of traditional concrete bump installation."
           ]
         },
         {
           title: "Future Vision",
-          content: "Phase 2 targets critical Quiet Zones â€” hospitals, schools, luxury estates. Phase 3 envisions embedding acoustic sensors tuned to emergency siren frequencies, automatically ensuring fluid state regardless of ambulance speed."
+          content: "Quiet Zones — hospitals, schools, luxury estates. Acoustic sensors tuned to emergency siren frequencies ensure fluid state regardless of ambulance speed."
         }
       ]
     }
   }
+
 ];
 
 // â”€â”€â”€ CURRENTLY WORKING ON â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
