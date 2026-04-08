@@ -68,47 +68,56 @@ export const FEATURED_PROJECTS: ProjectData[] = [
   {
     id: "02",
     status: "FEATURED",
-    year: "2026",
+    year: "2025",
     title: "Pandora",
     desc: "AI-powered STEM visualization engine transforming abstract physics and math into mathematically precise animations using Manim.",
     tags: ["AI/ML", "PYTHON", "FLUTTER", "STEM"],
     category: "Educational Platform",
     img: "/thumbnails/Project_Pandora_Showcase.png",
     link: "#",
-    role: "AI/ML Lead & Infrastructure Architect",
+    role: "AI/ML Lead & Architecture",
     details: {
-      pitch: "Eliminating the 'visual gap' in STEM education. Pandora translates natural language into precise mathematical animations, making complex concepts visible for every student.",
+      pitch: "Mathematically Certain. Visually Immersive. Pandora bridges the 'Visual Gap' in STEM education by translating natural language into precise, interactive programmatic animations.",
       sections: [
         {
-          title: "The Visual Gap in STEM",
-          content: "STEM education in India remains heavily theoretical, leaving students struggling to visualize abstract physics and mathematical concepts. Traditional online platforms rely on pre-recorded content that offers no dynamic interactivity or adaptive personalization. Pandora bridges this gap by combining LLMs with a mathematically precise rendering engine."
+          title: "The Crisis of Visualization",
+          content: "STEM education in India remains heavily theoretical, leaving students struggling with abstract concepts. Existing AI solutions suffer from the 'Generative Bottleneck'—producing mathematically inaccurate, visually inconsistent, and stylistically uneven content. Pandora solves this by anchoring visual generation to programmatic code rather than AI randomness."
         },
         {
-          title: "Programmatic Precision",
+          title: "Innovation: Programmatic Precision",
           content: [
-            "Utilizes Manim (Mathematical Animation Engine) to guarantee 100% mathematical accuracy, bypassing the 'hallucination' issues of standard generative video AI.",
-            "Translates natural language prompts—such as deriving the area under a parabola—into executable Manim scripts via optimized AI pipelines.",
-            "Renders flawless LaTeX equations and precise 3D plots to academic standards, removing the programming barrier for students and educators.",
-            "Introduces a custom .pandora file format that merges static LaTeX readability with interactive, embedded animations."
+            "Leveraging Manim (Mathematical Animation Engine) to guarantee absolute accuracy in 2D/3D plots and LaTeX typesetting.",
+            "Removing the steep programming barrier: Students and teachers prompt in natural language, and Pandora handles the underlying Python execution.",
+            "Proprietary .pandora format: A custom file type merging static LaTeX readability with interactive, embedded animations—designed for offline exploration."
           ]
         },
         {
-          title: "Hybrid Intelligence Architecture",
+          title: "AI & Inference Pipeline",
           content: [
-            "Hybrid cloud architecture: Distributed rendering pipeline balancing heavy compute on Raspberry Pi servers with cloud-based Manim services.",
-            "Cross-platform delivery: Unified Flutter client for Android, Desktop, and Web with optimized state management using the Provider package.",
-            "Offline-First Strategy: Aggressive edge caching and service workers support playback in rural environments with constrained network resources.",
-            "AI Pipeline: Multi-stage inference using OpenRouter APIs with prompt compression and token-efficient formatting."
+            "Advanced LLM Integration: Utilizing Llama-3 Maverick and Kimi-K2 to translate complex STEM prompts into executable scripts.",
+            "Prompt Engineering: Multi-part context-aware templates ensure output accuracy, consistent architectural tone, and token-efficient formatting.",
+            "Inference Execution: Frontend queries are parsed and routed to a custom API; automated error-checks and loop-querying ensure the generated Manim code compiles without failure."
           ]
         },
         {
-          title: "Impact & Roadmap",
+          title: "Technical Infrastructure",
           content: [
-            "Targets consistency in render times under 1.5 seconds and mapping 90% of the NCERT curriculum.",
-            "Engineered for low-literacy accessibility with semantic labels, high-contrast themes, and large tap targets.",
-            "Scalable design ready for integration with national digital platforms like SWAYAM and DIKSHA.",
-            "Future roadmap includes 3D Manim expansion, AR modules, and regional language support."
+            "Hybrid Cloud Architecture: Balancing heavy computational rendering with edge efficiency. A custom API is containerized via Docker and hosted on Raspberry Pi servers.",
+            "Microservices Layer: Lightweight Flask/Python environment for low-latency AI integrations, protected by global rate limiters and Firebase Auth (JWT).",
+            "Secondary Node.js Environment: Managing the curated content library using an MVC pattern with MongoDB Atlas as the scalable NoSQL backbone."
           ]
+        },
+        {
+          title: "UX, Optimization & Accessibility",
+          content: [
+            "Rural-Ready Design: Optimized <50MB app footprint through minified Flutter bundles and dynamic module loading.",
+            "Offline-First Strategy: Aggressive edge caching and service workers allow for high-quality playback in areas with zero or constrained connectivity.",
+            "Accessibility Standards: High-contrast themes, semantic labels for screen readers, large 44pt tap targets, and progressive streaming for instant feedback."
+          ]
+        },
+        {
+          title: "Roadmap & Scale",
+          content: "Targeting 90% mapping of the NCERT curriculum and integration with national digital platforms like SWAYAM/DIKSHA. Phase 2 expansion includes AR modules, regional language localization, and voice-assisted AI explanations."
         }
       ]
     }
